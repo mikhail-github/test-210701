@@ -14,6 +14,14 @@ eval $(minikube docker-env)
 ```shell
 docker build -t http-app:v1 http-app
 ```
+* Set appropriate value for kubectl config file and run Terraform init
+```shell
+KUBE_CONFIG_PATH=~/.kube/config TF_VAR_docker_image=http-app:v1 terraform -chdir=terraform init
+```
+* Run Terraform apply
+```shell
+KUBE_CONFIG_PATH=~/.kube/config TF_VAR_docker_image=http-app:v1 terraform -chdir=terraform apply
+```
 
 ### Architecture
 
