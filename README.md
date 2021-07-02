@@ -25,6 +25,12 @@ KUBE_CONFIG_PATH=~/.kube/config TF_VAR_docker_image=http-app:v1 terraform -chdir
 
 ### Architecture
 
+Application is deployed to Kubernetes cluster with multiple replicas and a service to provide external access to HTTP endpoint. 
+
+As Minikube with local Docker registry was used, container image pull policy was set to "Never". In case of external registry this parameter should be changed.   
+
+Please use the corresponding Docker image tag in build and deploy steps.
+
 ### Usage instruction
 
 Application endpoint can be accessed from shell
